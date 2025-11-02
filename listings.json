@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Modern 3-Bedroom Apartment",
+    "city": "Nairobi",
+    "neighborhood": "Kilimani",
+    "price": 14500000,
+    "beds": 3,
+    "baths": 2,
+    "area": 1200,
+    "lat": -1.2921,
+    "lng": 36.8219,
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Luxury Beachfront Villa",
+    "city": "Mombasa",
+    "neighborhood": "Nyali",
+    "price": 68000000,
+    "beds": 5,
+    "baths": 4,
+    "area": 4200,
+    "lat": -4.0435,
+    "lng": 39.6682,
+    "images": [
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0c?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Cozy Family Bungalow",
+    "city": "Nakuru",
+    "neighborhood": "Milimani",
+    "price": 9800000,
+    "beds": 4,
+    "baths": 3,
+    "area": 1800,
+    "lat": -0.3031,
+    "lng": 36.0800,
+    "images": [
+      "https://images.unsplash.com/photo-1600585154780-0e6a1f0a5c9e?auto=format&fit=crop&w=800&q=80"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Stylish Studio Apartment",
+    "city": "Kisumu",
+    "neighborhood": "Milimani Estate",
+    "price": 4500000,
+    "beds": 1,
+    "baths": 1,
+    "area": 600,
+    "lat": -0.1022,
+    "lng": 34.7617,
+    "images": [
+      "https://images.unsplash.com/photo-1600585154901-01b2cfcfc731?auto=format&fit=crop&w=800&q=80"
+    ]
+  }
+]
