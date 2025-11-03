@@ -1,62 +1,56 @@
 [
   {
     "id": 1,
-    "title": "Modern 3-Bedroom Apartment",
+    "title": "Two Bedroom (All Ensuite) — Kilimani (off Agwings Kodhek Road)",
     "city": "Nairobi",
-    "neighborhood": "Kilimani",
-    "price": 14500000,
-    "beds": 3,
+    "neighborhood": "Kilimani (off Agwings Kodhek Road)",
+    "price": 12500000,
+    "beds": 2,
     "baths": 2,
-    "area": 1200,
+    "area": 1100,
     "lat": -1.2921,
-    "lng": 36.8219,
+    "lng": 36.7860,
     "images": [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
-    ]
+      "images/kilimani-apartment.jpg"
+    ],
+    "short": "Modern two-bedroom apartment — both ensuite, balcony, shared rooftop gym & pool.",
+    "desc": "Modern two-bedroom apartment, both ensuite, located in Kilimani just off Agwings Kodhek Road. Spacious living room, fitted kitchen and secure parking.",
+    "map": "https://maps.google.com/?q=Kilimani+Agwings+Kodhek+Road"
   },
   {
     "id": 2,
-    "title": "Luxury Beachfront Villa",
-    "city": "Mombasa",
-    "neighborhood": "Nyali",
-    "price": 68000000,
-    "beds": 5,
-    "baths": 4,
-    "area": 4200,
-    "lat": -4.0435,
-    "lng": 39.6682,
+    "title": "Two Bedroom (All Ensuite) — Off Lenana Road",
+    "city": "Nairobi",
+    "neighborhood": "Off Lenana Road",
+    "price": 11800000,
+    "beds": 2,
+    "baths": 2,
+    "area": 1050,
+    "lat": -1.2833,
+    "lng": 36.8025,
     "images": [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
-    ]
+      "images/lenana-road-apartment.jpg"
+    ],
+    "short": "Stylish two-bedroom apartment (all ensuite) near Yaya Centre. Generator and secure parking.",
+    "desc": "Stylish two-bedroom apartment (all ensuite) located off Lenana Road. Modern finishes, backup generator and 24-hour security. Walking distance to shops and malls.",
+    "map": "https://maps.google.com/?q=Lenana+Road+Nairobi"
   },
   {
     "id": 3,
-    "title": "Cozy Family Bungalow",
-    "city": "Nakuru",
-    "neighborhood": "Milimani",
-    "price": 9800000,
-    "beds": 4,
-    "baths": 3,
-    "area": 1800,
-    "lat": -0.3031,
-    "lng": 36.0800,
-    "images": [
-      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFtaWx5JTIwaG91c2V8ZW58MHx8MHx8fDA%3D&fm=jpg&q=60&w=3000"
-    ]
-  },
-  {
-    "id": 4,
-    "title": "Stylish Studio Apartment",
-    "city": "Kisumu",
-    "neighborhood": "Milimani Estate",
-    "price": 4500000,
+    "title": "One Bedroom Apartment — Tatu City",
+    "city": "Tatu City",
+    "neighborhood": "Tatu City",
+    "price": 6500000,
     "beds": 1,
     "baths": 1,
-    "area": 600,
-    "lat": -0.1022,
-    "lng": 34.7617,
+    "area": 650,
+    "lat": -1.1734,
+    "lng": 36.9500,
     "images": [
-      "https://images.unsplash.com/photo-1702014862053-946a122b920d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3R1ZGlvJTIwYXBhcnRtZW50fGVufDB8fDB8fHww&fm=jpg&q=60&w=3000"
-    ]
+      "images/tatu-city-apartment.jpg"
+    ],
+    "short": "One-bedroom modern apartment in secure gated Tatu City community.",
+    "desc": "Elegant one-bedroom apartment within Tatu City offering modern fittings, balcony and secure parking. Ideal for professionals and small families.",
+    "map": "https://maps.google.com/?q=Tatu+City"
   }
 ]
