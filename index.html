@@ -1,118 +1,220 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EasyHomes Ke | Find Your Dream Home in Kenya</title>
-  <meta name="description" content="Kenya’s trusted property listings. Explore verified homes across Nairobi, Mombasa, Kisumu, Nakuru, and more." />
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/69/69524.png" type="image/png" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EasyHomes Kenya | Find Your Dream Home Anywhere in Kenya</title>
+  <meta name="description" content="Find verified houses, apartments and land for sale or rent across Kenya. Browse listings in Nairobi, Mombasa, Kisumu, Nakuru and beyond on EasyHomes Kenya.">
+  <meta name="keywords" content="easyhomes kenya, property kenya, houses for sale, apartments nairobi, real estate kenya">
+  <meta name="author" content="EasyHomes Kenya">
+  <link rel="canonical" href="https://easyhomeskenya.online/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="EasyHomes Kenya | Find Your Dream Home">
+  <meta property="og:description" content="Browse verified real estate listings across Kenya — Nairobi, Mombasa, Kisumu, Nakuru and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://easyhomeskenya.online/">
+  <meta property="og:image" content="https://easyhomeskenya.online/images/hero-bg.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EasyHomes Kenya | Find Your Dream Home">
+  <meta name="twitter:description" content="Browse verified real estate listings across Kenya — Nairobi, Mombasa, Kisumu, Nakuru and more.">
+  <meta name="twitter:image" content="https://easyhomeskenya.online/images/hero-bg.jpg">
+
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/69/69524.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <style>
-    body { font-family: 'Roboto', sans-serif; margin: 0; background: #F7F9FB; color: #333; }
-    header { position: sticky; top: 0; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; z-index: 1000; }
-    header .logo { font-family: 'Poppins', sans-serif; color: #1E90FF; font-size: 1.3rem; font-weight: 600; }
-    header .tagline { font-size: 0.8rem; color: #777; margin-top: -5px; }
-    nav a { margin: 0 1rem; color: #333; text-decoration: none; font-weight: 500; }
-    nav a:hover { color: #1E90FF; }
-    .hero { background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1560185008-5b9586a7e8a0?auto=format&fit=crop&w=1350&q=80') center/cover; color: #fff; text-align: center; padding: 6rem 1rem; }
-    .hero h1 { font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.1rem; margin-bottom: 2rem; }
-    .btn-primary { background: #1E90FF; color: #fff; padding: 0.8rem 1.5rem; border: none; border-radius: 30px; font-weight: 600; text-decoration: none; }
-    .btn-primary:hover { background: #FFB400; color: #333; transition: 0.3s; }
-    .properties { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; }
-    .property-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform 0.2s; }
-    .property-card:hover { transform: translateY(-5px); }
-    .property-card img { width: 100%; height: 200px; object-fit: cover; }
-    .property-card .info { padding: 1rem; }
-    .property-card h3 { margin: 0; color: #1E90FF; }
-    .property-card p { margin: 0.5rem 0; }
-    #map { height: 400px; margin: 2rem; border-radius: 10px; }
-    form { background: #fff; margin: 2rem; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    form h2 { color: #1E90FF; }
-    input, textarea { width: 100%; padding: 0.8rem; margin: 0.5rem 0; border-radius: 8px; border: 1px solid #ccc; }
-    button { background: #1E90FF; color: #fff; border: none; padding: 0.8rem 1.5rem; border-radius: 30px; font-weight: 600; cursor: pointer; }
-    button:hover { background: #FFB400; color: #333; }
-    footer { background: #1E90FF; color: #fff; text-align: center; padding: 2rem 1rem; margin-top: 3rem; }
-    footer a { color: #FFB400; text-decoration: none; margin: 0 0.5rem; }
-    footer a:hover { text-decoration: underline; }
-    @media(max-width:768px){ header{flex-direction:column; text-align:center;} nav{margin-top:0.5rem;} }
+    :root{
+      --primary:#1E3A8A; /* royal blue */
+      --accent:#FBBF24; /* gold */
+      --muted:#6B7280;
+      --bg:#F3F4F6;
+      --card:#ffffff;
+      --wa:#25D366;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Roboto,system-ui,-apple-system,"Segoe UI",Arial;color:#111;background:var(--bg)}
+    a{color:inherit}
+    header{position:sticky;top:0;background:#fff;z-index:1200;box-shadow:0 2px 6px rgba(15,23,42,0.06);}
+    .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
+    .brand{display:flex;flex-direction:column}
+    .brand .title{font-family:Poppins,system-ui;font-weight:600;color:var(--primary);font-size:1.15rem;text-decoration:none}
+    .brand .tag{font-size:12px;color:var(--muted);margin-top:2px}
+    nav.links{display:flex;gap:14px;align-items:center}
+    nav.links a{font-weight:600;padding:8px 12px;border-radius:8px;text-decoration:none;color:#111}
+    nav.links a.cta{background:var(--primary);color:#fff}
+    nav.links a.cta:hover{background:var(--accent);color:#111}
+
+    .hero{min-height:420px;background-image:linear-gradient(0deg,rgba(30,58,138,0.6),rgba(30,58,138,0.2)),url('images/hero-bg.jpg');background-size:cover;background-position:center;display:flex;align-items:center}
+    .hero .wrap{max-width:1200px;margin:0 auto;padding:36px 18px;color:#fff}
+    .hero h1{font-family:Poppins,system-ui;font-size:2.25rem;margin:0 0 10px}
+    .hero p{margin:0 0 18px;color:rgba(255,255,255,0.9);font-size:1.05rem}
+    .btn{display:inline-block;padding:10px 18px;border-radius:999px;background:var(--primary);color:#fff;text-decoration:none;font-weight:700}
+    .btn:hover{background:var(--accent);color:#111;transition:0.25s}
+
+    .main{max-width:1200px;margin:18px auto;padding:0 18px}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .section-title h2{margin:0;color:var(--primary);font-family:Poppins}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(15,23,42,0.06);transition:transform .18s,box-shadow .18s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(15,23,42,0.12)}
+    .card img{width:100%;height:220px;object-fit:cover;display:block}
+    .card .body{padding:12px}
+    .price{color:var(--primary);font-weight:800}
+    .meta{color:var(--muted);font-size:13px;margin-top:6px}
+    .desc{color:#333;font-size:14px;margin-top:8px}
+    .card .actions{display:flex;gap:8px;margin-top:12px;align-items:center}
+    .btn-ghost{background:#fff;border:1px solid #e6edf3;padding:9px 12px;border-radius:8px}
+    .btn-wa{background:var(--wa);color:#fff;padding:9px 12px;border-radius:8px;text-decoration:none;font-weight:700}
+
+    #map{height:420px;border-radius:12px;margin-top:18px}
+
+    .about{background:#fff;padding:18px;border-radius:12px;margin-top:18px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+
+    form.contact{margin-top:18px;background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6edf3;margin-top:8px}
+    .footer{background:var(--primary);color:#fff;padding:20px;margin-top:28px;border-top-left-radius:12px;border-top-right-radius:12px}
+    .footer a{color:var(--accent);text-decoration:none}
+
+    @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:1.8rem}}
+    @media(max-width:640px){.grid{grid-template-columns:1fr}.nav{padding:10px}.brand{align-items:center;text-align:center}.nav{flex-direction:column;gap:8px}nav.links{flex-wrap:wrap;justify-content:center}}
   </style>
 </head>
 <body>
-  <header>
-    <div>
-      <div class="logo">EasyHomes Ke</div>
-      <div class="tagline">Kenya’s Trusted Property Listings</div>
-    </div>
-    <nav>
-      <a href="#home">Home</a>
+
+<header>
+  <div class="nav">
+    <a href="/" class="brand" aria-label="EasyHomes Kenya home">
+      <div class="title">EasyHomes Kenya</div>
+      <div class="tag">Find Your Dream Home Anywhere in Kenya</div>
+    </a>
+    <nav class="links" aria-label="Main navigation">
       <a href="#properties">Browse Properties</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="cta">Contact</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <section class="hero" id="home">
-    <h1>Find Your Dream Home in Kenya</h1>
-    <p>Explore verified listings across Nairobi, Mombasa, Kisumu, Nakuru, and more.</p>
-    <a href="#properties" class="btn-primary">Browse Properties</a>
-  </section>
+<section class="hero" aria-label="Hero banner">
+  <div class="wrap">
+    <h1>Find Your Dream Home Anywhere in Kenya</h1>
+    <p>Browse verified apartments, houses, and land for sale or rent on EasyHomes Kenya.</p>
+    <a class="btn" href="#properties">View Listings</a>
+  </div>
+</section>
 
-  <section id="properties">
-    <div id="property-list" class="properties"></div>
-  </section>
+<main class="main">
+  <div class="section-title">
+    <h2 id="properties">Featured Listings</h2>
+    <div class="muted">Updated listings — contact us to list your property</div>
+  </div>
+
+  <div id="list" class="grid" aria-live="polite"></div>
 
   <div id="map"></div>
 
-  <form id="contact" action="https://formspree.io/f/yourformid" method="POST">
-    <h2>Contact Us</h2>
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="text" name="phone" placeholder="Phone Number" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+  <section id="about" class="about">
+    <h3>About EasyHomes Kenya</h3>
+    <p>EasyHomes Kenya helps you find your next home with ease. Browse verified listings for houses, apartments, and land across Kenya — from Nairobi to Mombasa, Kisumu, Nakuru, and beyond. Whether you’re buying, renting or investing, EasyHomes Kenya connects you directly with trusted agents and property owners.</p>
+  </section>
 
-  <footer>
-    <p>© 2025 EasyHomes Kenya. All rights reserved.</p>
-    <p>📍 Nairobi | ✉️ contact@easyhomeskenya.com | 📞 +254 726 675 381</p>
-    <p>
-      <a href="#home">Home</a> | 
-      <a href="#properties">Browse Properties</a> | 
-      <a href="#contact">Contact Us</a>
-    </p>
-  </footer>
+  <section id="contact" class="contact">
+    <h3>Contact EasyHomes Kenya</h3>
+    <p>Send us a message or use WhatsApp to enquire directly about a property.</p>
+    <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <input name="name" placeholder="Your name" required />
+        <input name="email" type="email" placeholder="Your email" required />
+      </div>
+      <input name="phone" placeholder="Phone (optional)" />
+      <textarea name="message" rows="5" placeholder="Your message"></textarea>
+      <div style="margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <button class="btn" type="submit">Send Message</button>
+        <a class="btn-ghost" href="mailto:contact@easyhomeskenya.online">Email Us</a>
+        <a class="btn-wa" href="https://wa.me/254726675381" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+    </form>
+  </section>
 
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-  <script>
-    const map = L.map('map').setView([-1.286389, 36.817223], 7);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
+</main>
 
-    fetch('listings.json')
-      .then(res => res.json())
-      .then(data => {
-        const listContainer = document.getElementById('property-list');
-        data.forEach(item => {
-          const card = document.createElement('div');
-          card.className = 'property-card';
-          card.innerHTML = `
-            <img src="${item.images[0]}" alt="${item.title}">
-            <div class="info">
-              <h3>${item.title}</h3>
-              <p>${item.city}, ${item.neighborhood}</p>
-              <p><strong>KES ${item.price.toLocaleString()}</strong></p>
-              <p>${item.beds} Beds • ${item.baths} Baths • ${item.area} sqft</p>
-            </div>`;
-          listContainer.appendChild(card);
-          if(item.lat && item.lng){
-            const marker = L.marker([item.lat, item.lng]).addTo(map);
-            marker.bindPopup(`<b>${item.title}</b><br>${item.city}`);
-          }
-        });
-      });
-  </script>
+<footer class="footer">
+  <div style="max-width:1200px;margin:0 auto;padding:0 18px;text-align:center">
+    <div>© 2025 EasyHomes Kenya. All rights reserved.</div>
+    <div>📍 Nairobi, Kenya &nbsp; | &nbsp; ✉️ <a href="mailto:contact@easyhomeskenya.online">contact@easyhomeskenya.online</a> &nbsp; | &nbsp; 📞 <a href="tel:+254726675381">+254 726 675 381</a></div>
+  </div>
+</footer>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  // Utility
+  function fmtKES(n){ return 'KES ' + Number(n).toLocaleString(); }
+  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  // Load listings.json and render
+  async function loadListings(){
+    try{
+      const res = await fetch('listings.json');
+      if(!res.ok) throw new Error('listings.json not found');
+      const data = await res.json();
+      renderList(data);
+      initMap(data);
+    }catch(err){
+      document.getElementById('list').innerHTML = '<div style="grid-column:1/-1;padding:20px;background:#fff;border-radius:8px;color:var(--muted)">Error loading listings.json — add the file to repository root. (<em>'+err.message+'</em>)</div>';
+      console.error(err);
+    }
+  }
+
+  function renderList(items){
+    const container = document.getElementById('list'); container.innerHTML='';
+    for(const it of items){
+      const el = document.createElement('article'); el.className='card';
+      const img = document.createElement('img'); img.src = it.images && it.images[0] ? it.images[0] : 'https://via.placeholder.com/1200x800?text=No+Image'; img.loading='lazy'; img.alt = it.title || 'Property image';
+      const body = document.createElement('div'); body.className='body';
+      body.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:flex-start"><div><h3 class="title">${esc(it.title)}</h3><div class="meta">${esc(it.city)} • ${esc(it.neighborhood)}</div></div><div class="price">${fmtKES(it.price)}</div></div><p class="desc">${esc(it.short || (it.desc || ''))}</p>`;
+
+      const actions = document.createElement('div'); actions.className='actions';
+      const btnView = document.createElement('a'); btnView.href = it.map || '#'; btnView.target='_blank'; btnView.rel='noopener'; btnView.className='btn-ghost'; btnView.textContent='View on Map';
+      const waText = encodeURIComponent(`Hello EasyHomes Kenya, I'm interested in the ${it.title}. Is it still available?`);
+      const btnWhats = document.createElement('a'); btnWhats.href = `https://wa.me/254726675381?text=${waText}`; btnWhats.target='_blank'; btnWhats.rel='noopener'; btnWhats.className='btn-wa'; btnWhats.textContent='💬 Enquire on WhatsApp';
+
+      actions.appendChild(btnView); actions.appendChild(btnWhats);
+      body.appendChild(actions);
+
+      el.appendChild(img); el.appendChild(body);
+      container.appendChild(el);
+    }
+  }
+
+  // Map
+  function initMap(items){
+    const map = L.map('map').setView([-1.286389,36.817223],6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap contributors'}).addTo(map);
+    const markers = [];
+    for(const it of items){
+      if(it.lat && it.lng){
+        const m = L.marker([it.lat,it.lng]).addTo(map);
+        const popupHtml = `<strong>${esc(it.title)}</strong><br>${esc(it.city)} • ${esc(it.neighborhood)}<br>${fmtKES(it.price)}<br><a href='https://wa.me/254726675381?text=${encodeURIComponent("Hello I am interested in " + it.title)}' target='_blank'>Contact on WhatsApp</a>`;
+        m.bindPopup(popupHtml);
+        markers.push([it.lat,it.lng]);
+      }
+    }
+    if(markers.length) map.fitBounds(markers,{padding:[40,40]});
+  }
+
+  // Initialize
+  loadListings();
+
+  // Contact form friendly notice (Formspree handles submission server-side)
+  document.getElementById('contactForm').addEventListener('submit',function(e){
+    setTimeout(()=>{ alert('Thanks — your message was sent. We will reply to your email.'); },300);
+  });
+</script>
 </body>
 </html>
