@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Property Details | EasyHomes Kenya</title>
+  <meta name="description" content="View full property details — price, features, amenities, and map location on EasyHomes Kenya.">
+
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Structured Data Placeholder -->
+  <script type="application/ld+json" id="schemaData">{}</script>
+
+  <style>
+    body { font-family: 'Roboto', sans-serif; margin: 0; background: #f9fafb; color: #1e293b; }
+    header { background: #1E3A8A; color: white; text-align: center; padding: 30px 10px; }
+    .container { max-width: 1000px; margin: 30px auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+    #map { height: 300px; border-radius: 10px; margin-top: 15px; }
+    button { background: #1E3A8A; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; }
+    .social-share { text-align:center; margin-top:20px; }
+    .social-share img { width:30px; margin:0 5px; }
+  </style>
+</head>
+<body>
+
+<header><h1 id="property-title">Property Details</h1></header>
+<div class="container" id="property-content"></div>
+
+<script>
+function loadProperty() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  fetch('listings.json')
+    .then(res => res.json())
+    .then(data => {
+      const item = data.find(p => p.id == id);
+      if (!item) return;
+
+      document.getElementById('property-title').textContent = item.title;
+      document.getElementById('property-content').innerHTML = `
+        <img src="${item.images[0]}" alt="${item.title}">
+        <h2>${item.title}</h2>
+        <p>${item.desc}</p>
+        <p><strong>Price:</strong> KES ${item.price.toLocaleString()}</p>
+        <p><strong>Bedrooms:</strong> ${item.beds} | <strong>Bathrooms:</strong> ${item.baths}</p>
+        <p><strong>Area:</strong> ${item.area} sqm</p>
+        <a href="${item.map}" target="_blank"><button>View on Map</button></a>
+        <a href="https://wa.me/254726675381?text=I'm%20interested%20in%20${encodeURIComponent(item.title)}%20on%20EasyHomes%20Kenya" target="_blank">
+          <button>Enquire via WhatsApp</button>
+        </a>
+        <div id="map"></div>
+        <div class="social-share">
+          <p>Share this property:</p>
+          <a href="https://wa.me/?text=Check%20this%20property:%20${window.location.href}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+          <a href="https://facebook.com/sharer/sharer.php?u=${window.location.href}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+          <a href="https://twitter.com/intent/tweet?url=${window.location.href}&text=Discover%20this%20property%20on%20EasyHomes%20Kenya" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+        </div>
+      `;
+
+      const map = L.map('map').setView([item.lat, item.lng], 15);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }).addTo(map);
+      L.marker([item.lat, item.lng]).addTo(map).bindPopup(item.title).openPopup();
+
+      updateStructuredData(item);
+    });
+}
+
+function updateStructuredData(item) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "SingleFamilyResidence",
+    "name": item.title,
+    "description": item.desc,
+    "image": item.images[0],
+    "address": { "@type": "PostalAddress", "addressLocality": item.city, "addressCountry": "Kenya" },
+    "geo": { "@type": "GeoCoordinates", "latitude": item.lat, "longitude": item.lng },
+    "offers": { "@type": "Offer", "priceCurrency": "KES", "price": item.price, "availability": "https://schema.org/InStock" },
+    "seller": { "@type": "RealEstateAgent", "name": "EasyHomes Kenya", "telephone": "+254726675381", "url": "https://easyhomeskenya.online" }
+  };
+  document.getElementById("schemaData").textContent = JSON.stringify(schema, null, 2);
+}
+
+loadProperty();
+</script>
+
+</body>
+</html>
