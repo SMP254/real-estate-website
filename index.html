@@ -3,98 +3,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EasyHomes Kenya — Refined Luxury Real Estate</title>
-  <meta name="description" content="Discover refined luxury homes, apartments, and land for sale or rent across Kenya with EasyHomes Kenya. Verified listings in Nairobi, Kilimani, and Tatu City.">
-
-  <!-- Favicon -->
-  <link rel="icon" href="images/logo.png" type="image/png">
-
-  <!-- SEO + Social -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="EasyHomes Kenya">
-  <meta property="og:title" content="EasyHomes Kenya — Refined Luxury Real Estate">
-  <meta property="og:description" content="Luxury apartments, homes, and land listings across Kenya. Verified properties for sale and rent.">
-  <meta property="og:image" content="https://easyhomeskenya.online/images/hero-bg.jpg">
-  <meta property="og:url" content="https://easyhomeskenya.online">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#1E3A8A">
-
-  <!-- Schema.org for EasyHomes Kenya -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "name": "EasyHomes Kenya",
-    "description": "Refined luxury real estate listings in Kenya — apartments, homes, and land for sale and rent in Nairobi, Tatu City, Kilimani, and beyond.",
-    "url": "https://easyhomeskenya.online",
-    "logo": "https://easyhomeskenya.online/images/logo.png",
-    "image": "https://easyhomeskenya.online/images/hero-bg.jpg",
-    "telephone": "+254726675381",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Nairobi",
-      "addressCountry": "Kenya"
-    },
-    "sameAs": [
-      "https://www.facebook.com/EasyHomesKenya",
-      "https://www.instagram.com/EasyHomesKenya",
-      "https://www.linkedin.com/company/easyhomeskenya"
-    ],
-    "openingHours": "Mo-Su 08:00-20:00",
-    "areaServed": { "@type": "Place", "name": "Kenya" }
-  }
-  </script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <title>EasyHomes Kenya — Refined Luxury Living</title>
+  <meta name="description" content="Explore premium real estate listings in Kenya. Apartments, villas, and homes for sale or rent. Refined Luxury Living by EasyHomes Kenya." />
+  <meta name="keywords" content="real estate Kenya, apartments Nairobi, EasyHomes Kenya, houses for sale, rent Kenya, property Kenya" />
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: #f8fafc; color: #1e293b; }
-    header { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/hero-bg.jpg') center/cover; color: white; text-align: center; padding: 100px 20px; }
-    header h1 { font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin: 0; }
-    header p { font-size: 1.2rem; }
-    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-    .property-card { background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 30px; overflow: hidden; transition: transform 0.2s; }
-    .property-card:hover { transform: translateY(-5px); }
-    .property-card img { width: 100%; height: 250px; object-fit: cover; }
-    .property-info { padding: 20px; }
-    .property-info h3 { margin: 0 0 10px; color: #1E3A8A; }
-    .property-info p { margin: 0 0 10px; }
-    .property-info button { background: #1E3A8A; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; }
-    footer { text-align: center; padding: 30px 10px; background: #1E3A8A; color: white; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #003366, #004b80);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero {
+      position: relative;
+      background: url('images/hero-bg.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .listings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .property-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .property-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .property-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .property-info {
+      padding: 1rem;
+    }
+
+    .property-info h3 {
+      color: #003366;
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .property-info p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.8rem;
+      color: #003366;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+      background: #003366;
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      margin: 1rem auto 0;
+      width: 80%;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #0055a5;
+    }
+
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #f9c846;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <header>EasyHomes Kenya — Refined Luxury Living</header>
 
-<header>
-  <h1>EasyHomes Kenya</h1>
-  <p>Refined Luxury Real Estate — Verified Homes Across Kenya</p>
-</header>
+  <section class="hero">
+    <h1>Find Your Next Home</h1>
+    <p>Luxury apartments, elegant villas, and modern homes across Kenya.</p>
+  </section>
 
-<div class="container" id="listings"></div>
+  <section class="listings" id="listings">
+    <p>Loading listings...</p>
+  </section>
 
-<footer>
-  <p>© 2025 EasyHomes Kenya | Call/WhatsApp: +254 726 675 381</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 EasyHomes Kenya. All rights reserved. | <a href="https://wa.me/254726675381">Chat on WhatsApp</a></p>
+  </footer>
 
-<script>
-fetch('listings.json')
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById('listings');
-    data.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'property-card';
-      card.innerHTML = `
-        <img src="${item.images[0]}" alt="${item.title}">
-        <div class="property-info">
-          <h3>${item.title}</h3>
-          <p>${item.short}</p>
-          <p><strong>Price:</strong> KES ${item.price.toLocaleString()}</p>
-          <button onclick="window.location.href='property.html?id=${item.id}'">View Property</button>
-        </div>`;
-      container.appendChild(card);
-    });
-  });
-</script>
+  <script>
+    async function loadListings() {
+      const res = await fetch('listings.json');
+      const listings = await res.json();
+      const container = document.getElementById('listings');
+      container.innerHTML = listings.map(item => `
+        <div class="property-card">
+          <img src="${item.images[0]}" alt="${item.title}">
+          <div class="property-info">
+            <h3>${item.title}</h3>
+            <p>${item.short}</p>
+            <div class="details">
+              <span>${item.beds} Beds</span>
+              <span>${item.baths} Baths</span>
+              <span>${item.area} sqm</span>
+            </div>
+            <a class="btn" href="property.html?id=${item.id}">View Property</a>
+          </div>
+        </div>
+      `).join('');
+    }
 
+    loadListings();
+  </script>
 </body>
 </html>
