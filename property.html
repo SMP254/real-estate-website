@@ -1,91 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Property Details | EasyHomes Kenya</title>
-  <meta name="description" content="View full property details — price, features, amenities, and map location on EasyHomes Kenya.">
-
-  <link rel="icon" href="images/logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- Structured Data Placeholder -->
-  <script type="application/ld+json" id="schemaData">{}</script>
-
+  <link rel="stylesheet" href="style.css">
   <style>
-    body { font-family: 'Roboto', sans-serif; margin: 0; background: #f9fafb; color: #1e293b; }
-    header { background: #1E3A8A; color: white; text-align: center; padding: 30px 10px; }
-    .container { max-width: 1000px; margin: 30px auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-    #map { height: 300px; border-radius: 10px; margin-top: 15px; }
-    button { background: #1E3A8A; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; }
-    .social-share { text-align:center; margin-top:20px; }
-    .social-share img { width:30px; margin:0 5px; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 10px;
+      border-radius: 12px;
+    }
+
+    .carousel img {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 1000px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 12px;
+      scroll-snap-align: start;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      color: #003366;
+      margin-top: 1rem;
+    }
+
+    .details {
+      margin-top: 1rem;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .info div {
+      flex: 1 1 45%;
+      background: #f0f4f8;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .buttons a {
+      flex: 1;
+      text-align: center;
+      background: #003366;
+      color: white;
+      padding: 0.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      background: #0055a5;
+    }
+
+    /* Lightbox styling */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .carousel img {
+        height: 280px;
+      }
+      .info div {
+        flex: 1 1 100%;
+      }
+      .buttons a {
+        flex: 1 1 100%;
+      }
+    }
   </style>
 </head>
 <body>
+  <header>EasyHomes Kenya — Refined Luxury Living</header>
+  
+  <div class="container" id="property-content">
+    <p>Loading property details...</p>
+  </div>
 
-<header><h1 id="property-title">Property Details</h1></header>
-<div class="container" id="property-content"></div>
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <a href="#" class="close">&times;</a>
+    <img id="lightbox-img" src="" alt="Property photo">
+  </div>
 
-<script>
-function loadProperty() {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
-  fetch('listings.json')
-    .then(res => res.json())
-    .then(data => {
-      const item = data.find(p => p.id == id);
-      if (!item) return;
+  <script>
+    async function loadProperty() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+      const res = await fetch('listings.json');
+      const listings = await res.json();
+      const property = listings.find(p => p.id == id);
 
-      document.getElementById('property-title').textContent = item.title;
+      if (!property) {
+        document.getElementById('property-content').innerHTML = '<p>Property not found.</p>';
+        return;
+      }
+
+      const imagesHTML = property.images
+        .map(img => `<img src="${img}" alt="${property.title}" onclick="openLightbox('${img}')">`)
+        .join('');
+
       document.getElementById('property-content').innerHTML = `
-        <img src="${item.images[0]}" alt="${item.title}">
-        <h2>${item.title}</h2>
-        <p>${item.desc}</p>
-        <p><strong>Price:</strong> KES ${item.price.toLocaleString()}</p>
-        <p><strong>Bedrooms:</strong> ${item.beds} | <strong>Bathrooms:</strong> ${item.baths}</p>
-        <p><strong>Area:</strong> ${item.area} sqm</p>
-        <a href="${item.map}" target="_blank"><button>View on Map</button></a>
-        <a href="https://wa.me/254726675381?text=I'm%20interested%20in%20${encodeURIComponent(item.title)}%20on%20EasyHomes%20Kenya" target="_blank">
-          <button>Enquire via WhatsApp</button>
-        </a>
-        <div id="map"></div>
-        <div class="social-share">
-          <p>Share this property:</p>
-          <a href="https://wa.me/?text=Check%20this%20property:%20${window.location.href}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
-          <a href="https://facebook.com/sharer/sharer.php?u=${window.location.href}" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
-          <a href="https://twitter.com/intent/tweet?url=${window.location.href}&text=Discover%20this%20property%20on%20EasyHomes%20Kenya" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+        <div class="carousel">${imagesHTML}</div>
+        <h2>${property.title}</h2>
+        <p class="details">${property.desc}</p>
+        <div class="info">
+          <div><strong>City:</strong> ${property.city}</div>
+          <div><strong>Neighborhood:</strong> ${property.neighborhood}</div>
+          <div><strong>Bedrooms:</strong> ${property.beds}</div>
+          <div><strong>Bathrooms:</strong> ${property.baths}</div>
+          <div><strong>Size:</strong> ${property.area} sqm</div>
+          <div><strong>Price:</strong> KSh ${property.price.toLocaleString()}</div>
+        </div>
+        <div class="buttons">
+          <a href="${property.map}" target="_blank">📍 View on Map</a>
+          <a href="https://wa.me/254726675381?text=Hi! I'm interested in the property: ${encodeURIComponent(property.title)}">💬 Inquire via WhatsApp</a>
         </div>
       `;
+    }
 
-      const map = L.map('map').setView([item.lat, item.lng], 15);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }).addTo(map);
-      L.marker([item.lat, item.lng]).addTo(map).bindPopup(item.title).openPopup();
+    function openLightbox(imgSrc) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = imgSrc;
+      lightbox.style.display = 'flex';
+    }
 
-      updateStructuredData(item);
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('lightbox').style.display = 'none';
     });
-}
 
-function updateStructuredData(item) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "SingleFamilyResidence",
-    "name": item.title,
-    "description": item.desc,
-    "image": item.images[0],
-    "address": { "@type": "PostalAddress", "addressLocality": item.city, "addressCountry": "Kenya" },
-    "geo": { "@type": "GeoCoordinates", "latitude": item.lat, "longitude": item.lng },
-    "offers": { "@type": "Offer", "priceCurrency": "KES", "price": item.price, "availability": "https://schema.org/InStock" },
-    "seller": { "@type": "RealEstateAgent", "name": "EasyHomes Kenya", "telephone": "+254726675381", "url": "https://easyhomeskenya.online" }
-  };
-  document.getElementById("schemaData").textContent = JSON.stringify(schema, null, 2);
-}
+    window.addEventListener('click', (e) => {
+      const lightbox = document.getElementById('lightbox');
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
 
-loadProperty();
-</script>
-
+    loadProperty();
+  </script>
 </body>
 </html>
