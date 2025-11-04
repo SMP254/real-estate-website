@@ -10,7 +10,11 @@
     "area": 1100,
     "lat": -1.29,
     "lng": 36.78,
-    "images": ["images/kilimani-apartment.jpg"],
+    "images": [
+      "images/kilimani-apartment.jpg",
+      "images/kilimani-apartment-2.jpg",
+      "images/kilimani-apartment-3.jpg"
+    ],
     "short": "Modern two-bedroom apartment — both ensuite, balcony, rooftop gym & pool.",
     "desc": "Modern two-bedroom apartment, both ensuite, located in Kilimani just off Agwings Kodhek Road. Spacious living room, fitted kitchen, secure parking and 24-hour security.",
     "map": "https://maps.google.com/?q=Kilimani+Agwings+Kodhek+Road"
