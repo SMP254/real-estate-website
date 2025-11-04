@@ -3,36 +3,32 @@
     "id": 1,
     "title": "Two Bedroom (All Ensuite) — Kilimani (off Agwings Kodhek Road)",
     "city": "Nairobi",
-    "neighborhood": "Kilimani (off Agwings Kodhek Road)",
+    "neighborhood": "Kilimani",
     "price": 18500000,
     "beds": 2,
     "baths": 2,
     "area": 1100,
     "lat": -1.29,
     "lng": 36.78,
-    "images": [
-      "images/kilimani-apartment.jpg"
-    ],
-    "short": "Modern two-bedroom apartment — both ensuite, balcony, shared rooftop gym & pool.",
-    "desc": "Modern two-bedroom apartment, both ensuite, located in Kilimani just off Agwings Kodhek Road. Spacious living room, fitted kitchen and secure parking.",
+    "images": ["images/kilimani-apartment.jpg"],
+    "short": "Modern two-bedroom apartment — both ensuite, balcony, rooftop gym & pool.",
+    "desc": "Modern two-bedroom apartment, both ensuite, located in Kilimani just off Agwings Kodhek Road. Spacious living room, fitted kitchen, secure parking and 24-hour security.",
     "map": "https://maps.google.com/?q=Kilimani+Agwings+Kodhek+Road"
   },
   {
     "id": 2,
     "title": "Two Bedroom (All Ensuite) — Off Lenana Road",
     "city": "Nairobi",
-    "neighborhood": "Off Lenana Road",
+    "neighborhood": "Lenana Road",
     "price": 24000000,
     "beds": 2,
     "baths": 2,
     "area": 1050,
     "lat": -1.2833,
     "lng": 36.8025,
-    "images": [
-      "images/lenana-road-apartment.jpg"
-    ],
-    "short": "Stylish two-bedroom apartment (all ensuite) near Yaya Centre. Generator and secure parking.",
-    "desc": "Stylish two-bedroom apartment (all ensuite) located off Lenana Road. Modern finishes, backup generator and 24-hour security. Walking distance to shops and malls.",
+    "images": ["images/lenana-road-apartment.jpg"],
+    "short": "Stylish two-bedroom apartment near Yaya Centre with generator & parking.",
+    "desc": "Stylish two-bedroom apartment (all ensuite) off Lenana Road. Modern finishes, backup generator, balcony, and 24-hour security. Walking distance to Yaya Centre.",
     "map": "https://maps.google.com/?q=Lenana+Road+Nairobi"
   },
   {
@@ -45,12 +41,10 @@
     "baths": 1,
     "area": 650,
     "lat": -1.1734,
-    "lng": 36.9500,
-    "images": [
-      "images/tatu-city-apartment.jpg"
-    ],
-    "short": "One-bedroom modern apartment in secure gated Tatu City community.",
-    "desc": "Elegant one-bedroom apartment within Tatu City offering modern fittings, balcony and secure parking. Ideal for professionals and small families.",
+    "lng": 36.95,
+    "images": ["images/tatu-city-apartment.jpg"],
+    "short": "Elegant one-bedroom apartment in secure gated Tatu City community.",
+    "desc": "Modern one-bedroom apartment in Tatu City with balcony, fitted kitchen, parking and green environment. Perfect for professionals or small families.",
     "map": "https://maps.google.com/?q=Tatu+City"
   }
 ]
