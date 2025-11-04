@@ -1,0 +1,240 @@
+/* ===============================
+   EasyHomes Kenya — Refined Luxury Living
+   Global Theme Styles
+   =============================== */
+
+:root {
+  --primary: #003366;   /* Deep Royal Blue */
+  --accent: #f9c846;    /* Elegant Gold */
+  --light-bg: #fafafa;
+  --text-dark: #222;
+  --muted: #6b7280;
+  --radius: 12px;
+  --transition: 0.3s ease;
+  --font-main: 'Poppins', sans-serif;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  background-color: var(--light-bg);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Header ---------- */
+header {
+  background: linear-gradient(90deg, var(--primary), #004b80);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  position: relative;
+  background: url('images/hero-bg.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Property Grid ---------- */
+.listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.property-card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.property-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.property-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+/* ---------- Property Info ---------- */
+.property-info {
+  padding: 1rem;
+}
+
+.property-info h3 {
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.property-info p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: block;
+  text-align: center;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  margin: 1rem auto 0;
+  width: 80%;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: #111;
+  transform: scale(1.03);
+}
+
+/* ---------- Property Page Styles ---------- */
+.property-hero {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--light-bg);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- Contact Section ---------- */
+.contact-section {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.contact-section h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.contact-section a {
+  display: inline-block;
+  background: var(--accent);
+  color: #111;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background var(--transition);
+}
+
+.contact-section a:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 1.2rem 0;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: white;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .btn {
+    width: 100%;
+  }
+}
