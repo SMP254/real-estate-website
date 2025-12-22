@@ -1,224 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Property Details | EasyHomes Kenya</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Property — Easy Homes Kenya</title>
+  <meta name="description" content="Property details and contact information. Find price, location and images for this listing.">
+  <link rel="canonical" href="https://easyhomeskenya.online/property.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Property — Easy Homes Kenya">
+  <meta property="og:description" content="See details of this property including price, images and location.">
+  <meta property="og:url" content="https://easyhomeskenya.online/property.html">
+  <meta property="og:image" content="https://easyhomeskenya.online/images/og-image.jpg">
+
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background-color: #fafafa;
-      color: #333;
-    }
 
-    header {
-      background: #003366;
-      color: white;
-      text-align: center;
-      padding: 1.5rem 0;
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+  <!-- Placeholder structured data for a single property (will be updated dynamically if you populate data) -->
+  <script type="application/ld+json" id="property-ld">
+  {
+    "@context": "https://schema.org",
+    "@type": "Residence",
+    "name": "Sample Property",
+    "description": "Property details and overview.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nairobi",
+      "addressCountry": "KE"
+    },
+    "image": [
+      "https://easyhomeskenya.online/images/listing-placeholder.jpg"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "KES",
+      "price": "Contact"
     }
-
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 10px;
-      border-radius: 12px;
-    }
-
-    .carousel img {
-      flex: 0 0 auto;
-      width: 100%;
-      max-width: 1000px;
-      height: 500px;
-      object-fit: cover;
-      border-radius: 12px;
-      scroll-snap-align: start;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .carousel img:hover {
-      transform: scale(1.02);
-    }
-
-    h2 {
-      color: #003366;
-      margin-top: 1rem;
-    }
-
-    .details {
-      margin-top: 1rem;
-      line-height: 1.6;
-      font-size: 1.1rem;
-    }
-
-    .info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .info div {
-      flex: 1 1 45%;
-      background: #f0f4f8;
-      padding: 10px;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .buttons a {
-      flex: 1;
-      text-align: center;
-      background: #003366;
-      color: white;
-      padding: 0.8rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .buttons a:hover {
-      background: #0055a5;
-    }
-
-    /* Lightbox styling */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
-
-    .lightbox:target {
-      display: flex;
-    }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 2rem;
-      text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      .carousel img {
-        height: 280px;
-      }
-      .info div {
-        flex: 1 1 100%;
-      }
-      .buttons a {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
+  }
+  </script>
 </head>
 <body>
-  <header>EasyHomes Kenya — Refined Luxury Living</header>
-  
-  <div class="container" id="property-content">
-    <p>Loading property details...</p>
-  </div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <a href="#" class="close">&times;</a>
-    <img id="lightbox-img" src="" alt="Property photo">
-  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Homepage">
+        <img src="/images/logo.png" alt="Easy Homes Kenya logo" width="160" height="40">
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <div id="property" class="property-detail">
+      <!-- Property content populated by JavaScript from listings.json using ?id=... -->
+      <p>Loading property details…</p>
+    </div>
+  </main>
+
+  <footer class="site-footer container">
+    <p>&copy; <span id="year"></span> Easy Homes Kenya.</p>
+  </footer>
 
   <script>
-    async function loadProperty() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get('id');
-      const res = await fetch('listings.json');
-      const listings = await res.json();
-      const property = listings.find(p => p.id == id);
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      if (!property) {
-        document.getElementById('property-content').innerHTML = '<p>Property not found.</p>';
-        return;
-      }
-
-      const imagesHTML = property.images
-        .map(img => `<img src="${img}" alt="${property.title}" onclick="openLightbox('${img}')">`)
-        .join('');
-
-      document.getElementById('property-content').innerHTML = `
-        <div class="carousel">${imagesHTML}</div>
-        <h2>${property.title}</h2>
-        <p class="details">${property.desc}</p>
-        <div class="info">
-          <div><strong>City:</strong> ${property.city}</div>
-          <div><strong>Neighborhood:</strong> ${property.neighborhood}</div>
-          <div><strong>Bedrooms:</strong> ${property.beds}</div>
-          <div><strong>Bathrooms:</strong> ${property.baths}</div>
-          <div><strong>Size:</strong> ${property.area} sqm</div>
-          <div><strong>Price:</strong> KSh ${property.price.toLocaleString()}</div>
-        </div>
-        <div class="buttons">
-          <a href="${property.map}" target="_blank">📍 View on Map</a>
-          <a href="https://wa.me/254726675381?text=Hi! I'm interested in the property: ${encodeURIComponent(property.title)}">💬 Inquire via WhatsApp</a>
-        </div>
-      `;
+    function getQueryParam(name) {
+      const params = new URLSearchParams(location.search);
+      return params.get(name);
     }
 
-    function openLightbox(imgSrc) {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      lightboxImg.src = imgSrc;
-      lightbox.style.display = 'flex';
+    async function showProperty() {
+      const id = getQueryParam('id');
+      try {
+        const res = await fetch('listings.json', {cache: "no-cache"});
+        const listings = await res.json();
+        const item = listings.find(l => String(l.id) === String(id)) || listings[0];
+
+        if (!item) {
+          document.getElementById('property').innerHTML = '<p>Property not found.</p>';
+          return;
+        }
+
+        // Update HTML
+        const title = item.title || 'Property';
+        const city = item.city || item.location || '';
+        const price = item.price ? (item.price_label || item.price) : 'Contact for price';
+        const img = item.image || 'images/listing-placeholder.jpg';
+        const imgSmall = img.replace(/(\.[a-zA-Z]+)$/, '-small$1');
+        const imgMed = img.replace(/(\.[a-zA-Z]+)$/, '-med$1');
+        const imgLarge = img.replace(/(\.[a-zA-Z]+)$/, '-large$1');
+
+        document.title = `${title} — Easy Homes Kenya`;
+
+        document.getElementById('property').innerHTML = `
+          <article>
+            <h1>${title}</h1>
+            <p class="muted">${city}</p>
+            <div class="property-media">
+              <img
+                src="${imgSmall}"
+                srcset="${imgSmall} 400w, ${imgMed} 800w, ${imgLarge} 1200w"
+                sizes="(max-width: 600px) 100vw, 60vw"
+                alt="${item.alt || title + (city ? ' — ' + city : '')}"
+                loading="lazy"
+                width="800" height="500"
+                onerror="this.onerror=null;this.src='images/listing-placeholder.jpg';">
+            </div>
+            <p class="price">${price}</p>
+            <p>${item.description || 'No description provided.'}</p>
+            <p><strong>Contact:</strong> ${item.contact || 'Contact us for details'}</p>
+          </article>
+        `;
+
+        // Update JSON-LD with real data
+        const ld = {
+          "@context": "https://schema.org",
+          "@type": "Residence",
+          "name": title,
+          "description": item.description || '',
+          "image": [img],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": city,
+            "addressCountry": "KE"
+          },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "KES",
+            "price": item.price || 'Contact'
+          }
+        };
+        document.getElementById('property-ld').textContent = JSON.stringify(ld);
+      } catch (err) {
+        document.getElementById('property').innerHTML = '<p>Unable to load property details.</p>';
+        console.error(err);
+      }
     }
 
-    document.querySelector('.close').addEventListener('click', () => {
-      document.getElementById('lightbox').style.display = 'none';
-    });
-
-    window.addEventListener('click', (e) => {
-      const lightbox = document.getElementById('lightbox');
-      if (e.target === lightbox) {
-        lightbox.style.display = 'none';
-      }
-    });
-
-    loadProperty();
+    showProperty();
   </script>
 </body>
 </html>
