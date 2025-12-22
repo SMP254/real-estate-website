@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" role="img" aria-label="Tatu City apartment placeholder">
+  <defs>
+    <linearGradient id="g7" x1="0" x2="1">
+      <stop offset="0" stop-color="#e8fff7"/>
+      <stop offset="1" stop-color="#cffcec"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g7)"/>
+  <g fill="#bff7e6">
+    <rect x="30" y="90" width="70" height="120" rx="4"/>
+    <rect x="110" y="60" width="90" height="170" rx="4"/>
+    <rect x="220" y="100" width="120" height="140" rx="4"/>
+  </g>
+  <rect x="0" y="250" width="400" height="34" fill="#ffffffaa"/>
+  <text x="200" y="276" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#054f3a" font-weight="600">Tatu City Apartment</text>
+</svg> 

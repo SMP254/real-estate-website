@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-label="Kilimani apartment placeholder">
+  <defs>
+    <linearGradient id="g3" x1="0" x2="1">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#e0f2ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g3)"/>
+  <g fill="#cfeaff">
+    <rect x="160" y="320" width="220" height="600" rx="8"/>
+    <rect x="440" y="200" width="300" height="760" rx="8"/>
+    <rect x="780" y="400" width="420" height="420" rx="8"/>
+  </g>
+  <rect x="0" y="1040" width="1600" height="120" fill="#ffffffdd"/>
+  <text x="800" y="1116" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="56" fill="#012">Kilimani Apartment</text>
+</svg> 

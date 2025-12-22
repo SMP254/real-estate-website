@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Lenana Road apartment placeholder">
+  <defs>
+    <linearGradient id="g5" x1="0" x2="1">
+      <stop offset="0" stop-color="#fffaf2"/>
+      <stop offset="1" stop-color="#ffeccf"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g5)"/>
+  <g fill="#ffe0b3">
+    <rect x="90" y="160" width="120" height="300" rx="6"/>
+    <rect x="240" y="110" width="170" height="360" rx="6"/>
+    <rect x="420" y="220" width="230" height="260" rx="6"/>
+  </g>
+  <rect x="0" y="520" width="800" height="60" fill="#ffffffcc"/>
+  <text x="400" y="558" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#5b3300" font-weight="700">Lenana Road Apartment</text>
+</svg> 
